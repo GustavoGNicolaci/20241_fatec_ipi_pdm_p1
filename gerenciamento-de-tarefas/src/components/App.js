@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TarefaEntrada from './TarefaEntrada';
+import TarefaLista from './TarefaLista';
 
 export default class App extends React.Component {
     render() {
@@ -10,6 +11,9 @@ export default class App extends React.Component {
                     <div className='col-8'>
 
                         <TarefaEntrada />
+                        <TarefaLista tarefa = 'Preparar aula de programação'/>
+                        <TarefaLista tarefa = 'Fazer feira'/>
+                        <TarefaLista tarefa = 'Preparar marmitas'/>
 
                     </div>
                 </div>
