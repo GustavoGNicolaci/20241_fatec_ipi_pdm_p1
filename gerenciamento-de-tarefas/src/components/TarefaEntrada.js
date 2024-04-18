@@ -1,23 +1,39 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class TarefaEntrada extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            novaTarefa: '' 
+        };
+    }
+
+    onFormSubmit = (evento) => {
+        evento.preventDefault();
+        const novaTarefa = evento.target[0].value; 
+        this.setState({ novaTarefa }); 
+        this.props.onEnviarTarefa(novaTarefa);
+        console.log(novaTarefa); 
+    }
+    
     render() {
         return (
-            <form>
-                <div class="input-group mb-3">
+            <form onSubmit={this.onFormSubmit}>
+                <div className="input-group mb-3">
                     <input
                         type="text"
                         className="form-control"
-                        placeholder={this.props.dica} />
+                        placeholder={this.props.dica}
+                    />
                 </div>
-                <button type="button" class="btn btn-outline-primary w-100">OK</button>
+                <button type="submit" className="btn btn-outline-primary w-100">OK</button>
             </form>
         )
     }
 }
 
-export default TarefaEntrada
-
 TarefaEntrada.defaultProps = {
     dica: 'Digite a descrição de uma nova tarefa'
 }
+
+export default TarefaEntrada;

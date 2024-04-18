@@ -16,4 +16,3 @@ export class TarefaLista extends Component {
 }
 
 export default TarefaLista
-
